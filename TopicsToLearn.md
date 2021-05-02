@@ -1,0 +1,37 @@
+## Topics to learn
+- Learn ElasticSearch - Interview Ready
+- Learn concepts 
+	- Life Inside a Cluster
+		- Add Failover
+		- Scale Horizontally
+		- Coping with Failure
+	- Distributed Document Store
+		- How Primary and Replica Shards Interact
+	- Searching—The Basic Tools
+		- Multi-index, Multitype
+		- Pagination
+	- Mapping and Analysis
+		- Analysis and Analyzers
+			- When Analyzers Are Used
+			- Testing Analyzers
+		- Mapping
+			- Customizing Field Mappings
+			- Testing the Mapping
+		- Complex Core Field Types
+			- Multilevel Objects
+			- Multivalue Fields
+			- How Inner Objects are Indexed
+			- Mapping for Inner Objects
+	- Full-Body Search
+		- Queries and Filters
+		- Combining Queries with Filters
+	- Sorting and Relevance
+		- String Sorting and Multifields
+		- Understanding the Score
+	- Distributed Search Execution
+		- scan and scroll
+	- Index Management
+	- Reducing Words to Their Root Form
+	- Stopwords: Performance Versus Precision
+	- Modeling Your Data
+	- Designing for Scale
