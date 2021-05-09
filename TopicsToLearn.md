@@ -5,8 +5,6 @@
 		- Add Failover
 		- Scale Horizontally
 		- Coping with Failure
-	- Distributed Document Store
-		- How Primary and Replica Shards Interact
 	- Searching—The Basic Tools
 		- Multi-index, Multitype
 		- Pagination
