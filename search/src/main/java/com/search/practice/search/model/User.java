@@ -20,16 +20,14 @@ import org.springframework.data.elasticsearch.annotations.Setting;
 public class User {
 
     @Id
+    @Field(type = FieldType.Integer, name = "PersonId")
     private Integer personId;
 
-    @Field(type = FieldType.Integer, name = "AssignmentId")
-    private Integer assignmentId;
+    @Field(type = FieldType.Text, name = "AssignmentId")
+    private String assignmentId;
 
     @Field(type = FieldType.Text, name = "DisplayName")
     private String displayName;
-
-    @Field(type = FieldType.Text, name = "AssignmentName")
-    private String assignmentName;
 
     @Field(type = FieldType.Text, name = "JobName")
     private String jobName;
@@ -51,11 +49,11 @@ public class User {
         this.personId = personId;
     }
 
-    public Integer getAssignmentId() {
+    public String getAssignmentId() {
         return assignmentId;
     }
 
-    public void setAssignmentId(Integer assignmentId) {
+    public void setAssignmentId(String assignmentId) {
         this.assignmentId = assignmentId;
     }
 
@@ -65,14 +63,6 @@ public class User {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
-    }
-
-    public String getAssignmentName() {
-        return assignmentName;
-    }
-
-    public void setAssignmentName(String assignmentName) {
-        this.assignmentName = assignmentName;
     }
 
     public String getJobName() {
@@ -113,7 +103,6 @@ public class User {
                 "personId=" + personId +
                 ", assignmentId=" + assignmentId +
                 ", displayName='" + displayName + '\'' +
-                ", assignmentName='" + assignmentName + '\'' +
                 ", jobName='" + jobName + '\'' +
                 ", city='" + city + '\'' +
                 ", email='" + email + '\'' +

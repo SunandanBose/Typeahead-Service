@@ -4,12 +4,10 @@ import com.search.practice.search.model.Filter;
 import com.search.practice.search.model.Search;
 import com.search.practice.search.model.User;
 import com.search.practice.search.repository.UserRepository;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.client.core.CountRequest;
 import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.*;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +23,12 @@ public class UserService {
 
     private UserRepository userRepository;
 
+    private ElasticsearchRestTemplate elasticsearchTemplate;
+
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, ElasticsearchRestTemplate elasticsearchTemplate) {
         this.userRepository = userRepository;
+        this.elasticsearchTemplate = elasticsearchTemplate;
     }
 
     public void createUserIndexBulk(final List<User> users) {
@@ -48,8 +49,13 @@ public class UserService {
 
     public Integer count(Search search) {
         Integer count = 0;
-        BoolQueryBuilder boolQueryBuilder = getBoolQueryBuilder(search);
-
+        try {
+            BoolQueryBuilder boolQueryBuilder = getBoolQueryBuilder(search);
+            Long elasticCount = elasticsearchTemplate.count(new NativeSearchQuery(boolQueryBuilder), User.class);
+            count = Integer.valueOf(elasticCount.intValue());
+        } catch (Exception e){
+            System.out.println("Exception occurred");
+        }
         return count;
     }
 
@@ -81,6 +87,7 @@ public class UserService {
                 boolQueryBuilder.filter(jobNameTermBuilder);
             }
         }
+        System.out.println("Query executed : " + boolQueryBuilder.toString());
         return boolQueryBuilder;
     }
 }
