@@ -13,6 +13,6 @@ public interface UserRepository extends ElasticsearchRepository<User, Integer> {
     @Override
     Optional<User> findById(Integer integer);
 
-    List<User> findByDisplayName(String Name);
+    List<User> findByFirstName(String Name);
 
 }

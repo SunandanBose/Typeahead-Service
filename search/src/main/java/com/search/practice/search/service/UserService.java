@@ -36,7 +36,7 @@ public class UserService {
     }
 
     public List<User> search(String searchTerm) {
-        return userRepository.findByDisplayName(searchTerm);
+        return userRepository.findByFirstName(searchTerm);
     }
 
     public List<User> search(Search search) {

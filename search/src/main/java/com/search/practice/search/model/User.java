@@ -23,11 +23,11 @@ public class User {
     @Field(type = FieldType.Integer, name = "PersonId")
     private Integer personId;
 
-    @Field(type = FieldType.Text, name = "AssignmentId")
-    private String assignmentId;
+    @Field(type = FieldType.Text, name = "FirstName")
+    private String firstName;
 
-    @Field(type = FieldType.Text, name = "DisplayName")
-    private String displayName;
+    @Field(type = FieldType.Text, name = "LastName")
+    private String lastName;
 
     @Field(type = FieldType.Text, name = "JobName")
     private String jobName;
@@ -35,78 +35,15 @@ public class User {
     @Field(type = FieldType.Text, name = "City")
     private String city;
 
+    @Field(type = FieldType.Text, name = "State")
+    private String state;
+
     @Field(type = FieldType.Text, name = "Email")
     private String email;
 
-    @Field(type = FieldType.Text, name = "CountryCode")
-    private String countryCode;
+    @Field(type = FieldType.Text, name = "Country")
+    private String country;
 
-    public Integer getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(Integer personId) {
-        this.personId = personId;
-    }
-
-    public String getAssignmentId() {
-        return assignmentId;
-    }
-
-    public void setAssignmentId(String assignmentId) {
-        this.assignmentId = assignmentId;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getJobName() {
-        return jobName;
-    }
-
-    public void setJobName(String jobName) {
-        this.jobName = jobName;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "personId=" + personId +
-                ", assignmentId=" + assignmentId +
-                ", displayName='" + displayName + '\'' +
-                ", jobName='" + jobName + '\'' +
-                ", city='" + city + '\'' +
-                ", email='" + email + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                '}';
-    }
+    @Field(type = FieldType.Text, name = "Company")
+    private String company;
 }
